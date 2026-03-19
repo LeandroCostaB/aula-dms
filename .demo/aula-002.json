@@ -3,16 +3,6 @@
   "title": "Aula 002 - Autenticação e Autorização",
   "demos": [
     {
-      "id": "scene-aula002-0001",
-      "title": "Abrir terminal",
-      "steps": [
-        {
-          "action": "openTerminal",
-          "terminalId": "aula"
-        }
-      ]
-    },
-    {
       "id": "demo-aula002-0002",
       "title": "Instalação das dependências",
       "steps": [
@@ -27,6 +17,16 @@
       ]
     },
     {
+      "id": "scene-aula002-0001",
+      "title": "Abrir terminal",
+      "steps": [
+        {
+          "action": "openTerminal",
+          "terminalId": "aula"
+        }
+      ]
+    },
+    {
       "id": "demo-aula002-0003",
       "title": "Atualizar .env",
       "steps": [
@@ -37,7 +37,9 @@
         {
           "action": "replace",
           "path": ".env",
-          "content": "DATABASE_URL=postgres://postgres:postgres@localhost:5432/custom\nPORT=3000\nJWT_SECRET=super-secret-jwt-key",
+          "content": "DATABASE_URL=postgres://postgres:postgres@localhost:5432/custom
+PORT=3000
+JWT_SECRET=super-secret-jwt-key",
           "position": "1:10",
           "highlightWholeLine": true
         },
@@ -57,7 +59,41 @@
         {
           "action": "replace",
           "path": "tsconfig.json",
-          "content": "{\n  \"compilerOptions\": {\n    \"module\": \"nodenext\",\n    \"moduleResolution\": \"nodenext\",\n    \"resolvePackageJsonExports\": true,\n    \"esModuleInterop\": true,\n    \"isolatedModules\": true,\n    \"declaration\": true,\n    \"removeComments\": true,\n    \"emitDecoratorMetadata\": true,\n    \"experimentalDecorators\": true,\n    \"allowSyntheticDefaultImports\": true,\n    \"target\": \"ES2023\",\n    \"sourceMap\": true,\n    \"outDir\": \"./dist\",\n    \"baseUrl\": \"./\",\n    \"incremental\": true,\n    \"skipLibCheck\": true,\n    \"strictNullChecks\": true,\n    \"forceConsistentCasingInFileNames\": true,\n    \"noImplicitAny\": true,\n    \"strictBindCallApply\": true,\n    \"noFallthroughCasesInSwitch\": true,\n    \"paths\": {\n      \"@shared/*\": [\"src/shared/*\"],\n      \"@academic/*\": [\"src/modules/academic/*\"],\n      \"@class-offering/*\": [\"src/modules/class-offering/*\"],\n      \"@enrollment/*\": [\"src/modules/enrollment/*\"],\n      \"@attendance/*\": [\"src/modules/attendance/*\"],\n      \"@users/*\": [\"src/modules/users/*\"],\n      \"@auth/*\": [\"src/modules/auth/*\"]\n    }\n  }\n}\n",
+          "content": "{
+  \"compilerOptions\": {
+    \"module\": \"nodenext\",
+    \"moduleResolution\": \"nodenext\",
+    \"resolvePackageJsonExports\": true,
+    \"esModuleInterop\": true,
+    \"isolatedModules\": true,
+    \"declaration\": true,
+    \"removeComments\": true,
+    \"emitDecoratorMetadata\": true,
+    \"experimentalDecorators\": true,
+    \"allowSyntheticDefaultImports\": true,
+    \"target\": \"ES2023\",
+    \"sourceMap\": true,
+    \"outDir\": \"./dist\",
+    \"baseUrl\": \"./\",
+    \"incremental\": true,
+    \"skipLibCheck\": true,
+    \"strictNullChecks\": true,
+    \"forceConsistentCasingInFileNames\": true,
+    \"noImplicitAny\": true,
+    \"strictBindCallApply\": true,
+    \"noFallthroughCasesInSwitch\": true,
+    \"paths\": {
+      \"@shared/*\": [\"src/shared/*\"],
+      \"@academic/*\": [\"src/modules/academic/*\"],
+      \"@class-offering/*\": [\"src/modules/class-offering/*\"],
+      \"@enrollment/*\": [\"src/modules/enrollment/*\"],
+      \"@attendance/*\": [\"src/modules/attendance/*\"],
+      \"@users/*\": [\"src/modules/users/*\"],
+      \"@auth/*\": [\"src/modules/auth/*\"]
+    }
+  }
+}
+",
           "position": "1:35",
           "highlightWholeLine": true
         },
@@ -91,7 +127,36 @@
         {
           "action": "replace",
           "path": "src/shared/domain/enums/permission.enum.ts",
-          "content": "export enum Permission {\n  STUDENTS_READ = \"students:read\",\n  STUDENTS_WRITE = \"students:write\",\n  STUDENTS_DELETE = \"students:delete\",\n\n  TEACHERS_READ = \"teachers:read\",\n  TEACHERS_WRITE = \"teachers:write\",\n  TEACHERS_DELETE = \"teachers:delete\",\n\n  SUBJECTS_READ = \"subjects:read\",\n  SUBJECTS_WRITE = \"subjects:write\",\n  SUBJECTS_DELETE = \"subjects:delete\",\n\n  CLASS_OFFERINGS_READ = \"class-offerings:read\",\n  CLASS_OFFERINGS_WRITE = \"class-offerings:write\",\n  CLASS_OFFERINGS_DELETE = \"class-offerings:delete\",\n\n  ENROLLMENTS_READ = \"enrollments:read\",\n  ENROLLMENTS_WRITE = \"enrollments:write\",\n  ENROLLMENTS_DELETE = \"enrollments:delete\",\n\n  ATTENDANCES_READ = \"attendances:read\",\n  ATTENDANCES_WRITE = \"attendances:write\",\n  ATTENDANCES_DELETE = \"attendances:delete\",\n\n  USERS_READ = \"users:read\",\n  USERS_WRITE = \"users:write\",\n  USERS_DELETE = \"users:delete\",\n}\n",
+          "content": "export enum Permission {
+  STUDENTS_READ = \"students:read\",
+  STUDENTS_WRITE = \"students:write\",
+  STUDENTS_DELETE = \"students:delete\",
+
+  TEACHERS_READ = \"teachers:read\",
+  TEACHERS_WRITE = \"teachers:write\",
+  TEACHERS_DELETE = \"teachers:delete\",
+
+  SUBJECTS_READ = \"subjects:read\",
+  SUBJECTS_WRITE = \"subjects:write\",
+  SUBJECTS_DELETE = \"subjects:delete\",
+
+  CLASS_OFFERINGS_READ = \"class-offerings:read\",
+  CLASS_OFFERINGS_WRITE = \"class-offerings:write\",
+  CLASS_OFFERINGS_DELETE = \"class-offerings:delete\",
+
+  ENROLLMENTS_READ = \"enrollments:read\",
+  ENROLLMENTS_WRITE = \"enrollments:write\",
+  ENROLLMENTS_DELETE = \"enrollments:delete\",
+
+  ATTENDANCES_READ = \"attendances:read\",
+  ATTENDANCES_WRITE = \"attendances:write\",
+  ATTENDANCES_DELETE = \"attendances:delete\",
+
+  USERS_READ = \"users:read\",
+  USERS_WRITE = \"users:write\",
+  USERS_DELETE = \"users:delete\",
+}
+",
           "position": "1:30",
           "highlightWholeLine": true
         },
@@ -125,7 +190,11 @@
         {
           "action": "replace",
           "path": "src/shared/infra/decorators/public.decorator.ts",
-          "content": "import { SetMetadata } from \"@nestjs/common\";\n\nexport const IS_PUBLIC_KEY = \"isPublic\";\nexport const Public = () => SetMetadata(IS_PUBLIC_KEY, true);\n",
+          "content": "import { SetMetadata } from \"@nestjs/common\";
+
+export const IS_PUBLIC_KEY = \"isPublic\";
+export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);
+",
           "position": "1:10",
           "highlightWholeLine": true
         },
@@ -159,7 +228,13 @@
         {
           "action": "replace",
           "path": "src/shared/infra/decorators/permissions.decorator.ts",
-          "content": "import { SetMetadata } from \"@nestjs/common\";\nimport type { Permission } from \"@shared/domain/enums/permission.enum\";\n\nexport const PERMISSIONS_KEY = \"permissions\";\nexport const RequirePermissions = (...permissions: Permission[]) =>\n  SetMetadata(PERMISSIONS_KEY, permissions);\n",
+          "content": "import { SetMetadata } from \"@nestjs/common\";
+import type { Permission } from \"@shared/domain/enums/permission.enum\";
+
+export const PERMISSIONS_KEY = \"permissions\";
+export const RequirePermissions = (...permissions: Permission[]) =>
+  SetMetadata(PERMISSIONS_KEY, permissions);
+",
           "position": "1:10",
           "highlightWholeLine": true
         },
@@ -193,7 +268,23 @@
         {
           "action": "replace",
           "path": "src/shared/infra/decorators/current-user.decorator.ts",
-          "content": "import { createParamDecorator, type ExecutionContext } from \"@nestjs/common\";\n\nexport interface AuthenticatedUser {\n  sub: string;\n  email: string;\n  permissions: string[];\n}\n\nexport const CurrentUser = createParamDecorator(\n  (_data: unknown, ctx: ExecutionContext): AuthenticatedUser => {\n    const request = ctx\n      .switchToHttp()\n      .getRequest<{ user: AuthenticatedUser }>();\n    return request.user;\n  },\n);\n",
+          "content": "import { createParamDecorator, type ExecutionContext } from \"@nestjs/common\";
+
+export interface AuthenticatedUser {
+  sub: string;
+  email: string;
+  permissions: string[];
+}
+
+export const CurrentUser = createParamDecorator(
+  (_data: unknown, ctx: ExecutionContext): AuthenticatedUser => {
+    const request = ctx
+      .switchToHttp()
+      .getRequest<{ user: AuthenticatedUser }>();
+    return request.user;
+  },
+);
+",
           "position": "1:20",
           "highlightWholeLine": true
         },
@@ -241,7 +332,90 @@
         {
           "action": "replace",
           "path": "src/modules/users/domain/models/user.entity.ts",
-          "content": "export class User {\n  private readonly _id?: string;\n  private _email: string;\n  private _password: string;\n  private _teacherId?: string;\n  private _permissions: string[];\n  private readonly _createdAt?: Date;\n  private readonly _updatedAt?: Date;\n\n  private constructor(id?: string, createdAt?: Date, updatedAt?: Date) {\n    this._id = id;\n    this._createdAt = createdAt;\n    this._updatedAt = updatedAt;\n  }\n\n  get id(): string | undefined {\n    return this._id;\n  }\n\n  get email(): string {\n    return this._email;\n  }\n\n  get password(): string {\n    return this._password;\n  }\n\n  get teacherId(): string | undefined {\n    return this._teacherId;\n  }\n\n  get permissions(): string[] {\n    return this._permissions;\n  }\n\n  get createdAt(): Date | undefined {\n    return this._createdAt;\n  }\n\n  get updatedAt(): Date | undefined {\n    return this._updatedAt;\n  }\n\n  withEmail(email: string) {\n    this._email = email;\n    return this;\n  }\n\n  withPassword(password: string) {\n    this._password = password;\n    return this;\n  }\n\n  withTeacherId(teacherId: string | undefined) {\n    this._teacherId = teacherId;\n    return this;\n  }\n\n  withPermissions(permissions: string[]) {\n    this._permissions = permissions;\n    return this;\n  }\n\n  static restore(props?: {\n    id?: string;\n    email: string;\n    password: string;\n    teacherId?: string | null;\n    permissions: string[];\n    createdAt?: Date;\n    updatedAt?: Date;\n  }): User | null {\n    if (!props) return null;\n\n    const user = new User(props.id, props.createdAt, props.updatedAt);\n    user._email = props.email;\n    user._password = props.password;\n    user._teacherId = props.teacherId ?? undefined;\n    user._permissions = props.permissions ?? [];\n\n    return user;\n  }\n}\n",
+          "content": "export class User {
+  private readonly _id?: string;
+  private _email: string;
+  private _password: string;
+  private _teacherId?: string;
+  private _permissions: string[];
+  private readonly _createdAt?: Date;
+  private readonly _updatedAt?: Date;
+
+  private constructor(id?: string, createdAt?: Date, updatedAt?: Date) {
+    this._id = id;
+    this._createdAt = createdAt;
+    this._updatedAt = updatedAt;
+  }
+
+  get id(): string | undefined {
+    return this._id;
+  }
+
+  get email(): string {
+    return this._email;
+  }
+
+  get password(): string {
+    return this._password;
+  }
+
+  get teacherId(): string | undefined {
+    return this._teacherId;
+  }
+
+  get permissions(): string[] {
+    return this._permissions;
+  }
+
+  get createdAt(): Date | undefined {
+    return this._createdAt;
+  }
+
+  get updatedAt(): Date | undefined {
+    return this._updatedAt;
+  }
+
+  withEmail(email: string) {
+    this._email = email;
+    return this;
+  }
+
+  withPassword(password: string) {
+    this._password = password;
+    return this;
+  }
+
+  withTeacherId(teacherId: string | undefined) {
+    this._teacherId = teacherId;
+    return this;
+  }
+
+  withPermissions(permissions: string[]) {
+    this._permissions = permissions;
+    return this;
+  }
+
+  static restore(props?: {
+    id?: string;
+    email: string;
+    password: string;
+    teacherId?: string | null;
+    permissions: string[];
+    createdAt?: Date;
+    updatedAt?: Date;
+  }): User | null {
+    if (!props) return null;
+
+    const user = new User(props.id, props.createdAt, props.updatedAt);
+    user._email = props.email;
+    user._password = props.password;
+    user._teacherId = props.teacherId ?? undefined;
+    user._permissions = props.permissions ?? [];
+
+    return user;
+  }
+}
+",
           "position": "1:100",
           "highlightWholeLine": true
         },
@@ -275,7 +449,19 @@
         {
           "action": "replace",
           "path": "src/modules/users/domain/repositories/user-repository.interface.ts",
-          "content": "import type { User } from \"@users/domain/models/user.entity\";\n\nexport const USER_REPOSITORY = Symbol(\"USER_REPOSITORY\");\n\nexport interface UserRepository {\n  create(user: User): Promise<void>;\n  update(user: User): Promise<void>;\n  delete(id: string): Promise<void>;\n  findAll(): Promise<User[]>;\n  findById(id: string): Promise<User | null>;\n  findByEmail(email: string): Promise<User | null>;\n}\n",
+          "content": "import type { User } from \"@users/domain/models/user.entity\";
+
+export const USER_REPOSITORY = Symbol(\"USER_REPOSITORY\");
+
+export interface UserRepository {
+  create(user: User): Promise<void>;
+  update(user: User): Promise<void>;
+  delete(id: string): Promise<void>;
+  findAll(): Promise<User[]>;
+  findById(id: string): Promise<User | null>;
+  findByEmail(email: string): Promise<User | null>;
+}
+",
           "position": "1:20",
           "highlightWholeLine": true
         },
@@ -309,7 +495,19 @@
         {
           "action": "replace",
           "path": "src/modules/users/infra/schemas/user.schema.ts",
-          "content": "import { teachersSchema } from \"@academic/teachers/infra/schemas/teacher.schema\";\nimport { pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";\n\nexport const usersSchema = pgTable(\"users\", {\n  id: uuid(\"id\").primaryKey().defaultRandom(),\n  email: text(\"email\").notNull().unique(),\n  password: text(\"password\").notNull(),\n  teacherId: uuid(\"teacher_id\").references(() => teachersSchema.id),\n  permissions: text(\"permissions\").array().notNull(),\n  createdAt: timestamp(\"created_at\", { withTimezone: true }).notNull(),\n  updatedAt: timestamp(\"updated_at\", { withTimezone: true }).notNull(),\n});\n",
+          "content": "import { teachersSchema } from \"@academic/teachers/infra/schemas/teacher.schema\";
+import { pgTable, text, timestamp, uuid } from \"drizzle-orm/pg-core\";
+
+export const usersSchema = pgTable(\"users\", {
+  id: uuid(\"id\").primaryKey().defaultRandom(),
+  email: text(\"email\").notNull().unique(),
+  password: text(\"password\").notNull(),
+  teacherId: uuid(\"teacher_id\").references(() => teachersSchema.id),
+  permissions: text(\"permissions\").array().notNull(),
+  createdAt: timestamp(\"created_at\", { withTimezone: true }).notNull(),
+  updatedAt: timestamp(\"updated_at\", { withTimezone: true }).notNull(),
+});
+",
           "position": "1:20",
           "highlightWholeLine": true
         },
@@ -343,7 +541,83 @@
         {
           "action": "replace",
           "path": "src/modules/users/application/dto/user.dto.ts",
-          "content": "import type { Permission } from \"@shared/domain/enums/permission.enum\";\nimport type { User } from \"@users/domain/models/user.entity\";\nimport {\n  IsArray,\n  IsEmail,\n  IsOptional,\n  IsString,\n  IsUUID,\n  MinLength,\n} from \"class-validator\";\n\nexport class CreateUserDto {\n  @IsEmail()\n  email: string;\n\n  @IsString()\n  @MinLength(6)\n  password: string;\n\n  @IsOptional()\n  @IsUUID()\n  teacherId?: string;\n\n  @IsArray()\n  @IsString({ each: true })\n  permissions: Permission[];\n}\n\nexport class UpdateUserDto {\n  @IsOptional()\n  @IsEmail()\n  email?: string;\n\n  @IsOptional()\n  @IsString()\n  @MinLength(6)\n  password?: string;\n\n  @IsOptional()\n  @IsUUID()\n  teacherId?: string;\n\n  @IsOptional()\n  @IsArray()\n  @IsString({ each: true })\n  permissions?: Permission[];\n}\n\nexport class UserResponseDto {\n  private constructor(\n    public id: string,\n    public email: string,\n    public teacherId: string | undefined,\n    public permissions: string[],\n    public createdAt: Date | undefined,\n    public updatedAt: Date | undefined,\n  ) {}\n\n  static from(user: User | null): UserResponseDto | null {\n    if (!user) return null;\n    return new UserResponseDto(\n      user.id!,\n      user.email,\n      user.teacherId,\n      user.permissions,\n      user.createdAt,\n      user.updatedAt,\n    );\n  }\n}\n\nexport interface UserPayload {\n  id: string;\n  email: string;\n  permissions: string[];\n}\n",
+          "content": "import type { Permission } from \"@shared/domain/enums/permission.enum\";
+import type { User } from \"@users/domain/models/user.entity\";
+import {
+  IsArray,
+  IsEmail,
+  IsOptional,
+  IsString,
+  IsUUID,
+  MinLength,
+} from \"class-validator\";
+
+export class CreateUserDto {
+  @IsEmail()
+  email: string;
+
+  @IsString()
+  @MinLength(6)
+  password: string;
+
+  @IsOptional()
+  @IsUUID()
+  teacherId?: string;
+
+  @IsArray()
+  @IsString({ each: true })
+  permissions: Permission[];
+}
+
+export class UpdateUserDto {
+  @IsOptional()
+  @IsEmail()
+  email?: string;
+
+  @IsOptional()
+  @IsString()
+  @MinLength(6)
+  password?: string;
+
+  @IsOptional()
+  @IsUUID()
+  teacherId?: string;
+
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  permissions?: Permission[];
+}
+
+export class UserResponseDto {
+  private constructor(
+    public id: string,
+    public email: string,
+    public teacherId: string | undefined,
+    public permissions: string[],
+    public createdAt: Date | undefined,
+    public updatedAt: Date | undefined,
+  ) {}
+
+  static from(user: User | null): UserResponseDto | null {
+    if (!user) return null;
+    return new UserResponseDto(
+      user.id!,
+      user.email,
+      user.teacherId,
+      user.permissions,
+      user.createdAt,
+      user.updatedAt,
+    );
+  }
+}
+
+export interface UserPayload {
+  id: string;
+  email: string;
+  permissions: string[];
+}
+",
           "position": "1:100",
           "highlightWholeLine": true
         },
@@ -377,7 +651,73 @@
         {
           "action": "replace",
           "path": "src/modules/users/infra/repositories/drizzle-user.repository.ts",
-          "content": "import { Injectable } from \"@nestjs/common\";\nimport { DrizzleService } from \"@shared/infra/database/drizzle.service\";\nimport { User } from \"@users/domain/models/user.entity\";\nimport type { UserRepository } from \"@users/domain/repositories/user-repository.interface\";\nimport { usersSchema } from \"@users/infra/schemas/user.schema\";\nimport { eq } from \"drizzle-orm\";\n\n@Injectable()\nexport class DrizzleUserRepository implements UserRepository {\n  constructor(private readonly drizzleService: DrizzleService) {}\n\n  async create(user: User): Promise<void> {\n    await this.drizzleService.db.insert(usersSchema).values({\n      email: user.email,\n      password: user.password,\n      teacherId: user.teacherId ?? null,\n      permissions: user.permissions,\n      createdAt: new Date(),\n      updatedAt: new Date(),\n    });\n  }\n\n  async update(user: User): Promise<void> {\n    await this.drizzleService.db\n      .update(usersSchema)\n      .set({\n        email: user.email,\n        password: user.password,\n        teacherId: user.teacherId ?? null,\n        permissions: user.permissions,\n        updatedAt: new Date(),\n      })\n      .where(eq(usersSchema.id, user.id!));\n  }\n\n  async delete(id: string): Promise<void> {\n    await this.drizzleService.db\n      .delete(usersSchema)\n      .where(eq(usersSchema.id, id));\n  }\n\n  async findById(id: string): Promise<User | null> {\n    const result = await this.drizzleService.db\n      .select()\n      .from(usersSchema)\n      .where(eq(usersSchema.id, id))\n      .limit(1);\n\n    return User.restore(result[0]);\n  }\n\n  async findByEmail(email: string): Promise<User | null> {\n    const result = await this.drizzleService.db\n      .select()\n      .from(usersSchema)\n      .where(eq(usersSchema.email, email.toLowerCase()))\n      .limit(1);\n\n    return User.restore(result[0]);\n  }\n\n  async findAll(): Promise<User[]> {\n    const rows = await this.drizzleService.db.select().from(usersSchema);\n    return rows.map((row) => User.restore(row)!);\n  }\n}\n",
+          "content": "import { Injectable } from \"@nestjs/common\";
+import { DrizzleService } from \"@shared/infra/database/drizzle.service\";
+import { User } from \"@users/domain/models/user.entity\";
+import type { UserRepository } from \"@users/domain/repositories/user-repository.interface\";
+import { usersSchema } from \"@users/infra/schemas/user.schema\";
+import { eq } from \"drizzle-orm\";
+
+@Injectable()
+export class DrizzleUserRepository implements UserRepository {
+  constructor(private readonly drizzleService: DrizzleService) {}
+
+  async create(user: User): Promise<void> {
+    await this.drizzleService.db.insert(usersSchema).values({
+      email: user.email,
+      password: user.password,
+      teacherId: user.teacherId ?? null,
+      permissions: user.permissions,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+  }
+
+  async update(user: User): Promise<void> {
+    await this.drizzleService.db
+      .update(usersSchema)
+      .set({
+        email: user.email,
+        password: user.password,
+        teacherId: user.teacherId ?? null,
+        permissions: user.permissions,
+        updatedAt: new Date(),
+      })
+      .where(eq(usersSchema.id, user.id!));
+  }
+
+  async delete(id: string): Promise<void> {
+    await this.drizzleService.db
+      .delete(usersSchema)
+      .where(eq(usersSchema.id, id));
+  }
+
+  async findById(id: string): Promise<User | null> {
+    const result = await this.drizzleService.db
+      .select()
+      .from(usersSchema)
+      .where(eq(usersSchema.id, id))
+      .limit(1);
+
+    return User.restore(result[0]);
+  }
+
+  async findByEmail(email: string): Promise<User | null> {
+    const result = await this.drizzleService.db
+      .select()
+      .from(usersSchema)
+      .where(eq(usersSchema.email, email.toLowerCase()))
+      .limit(1);
+
+    return User.restore(result[0]);
+  }
+
+  async findAll(): Promise<User[]> {
+    const rows = await this.drizzleService.db.select().from(usersSchema);
+    return rows.map((row) => User.restore(row)!);
+  }
+}
+",
           "position": "1:100",
           "highlightWholeLine": true
         },
@@ -411,7 +751,97 @@
         {
           "action": "replace",
           "path": "src/modules/users/application/services/user.service.ts",
-          "content": "import {\n  ConflictException,\n  Inject,\n  Injectable,\n  NotFoundException,\n} from \"@nestjs/common\";\nimport {\n  type CreateUserDto,\n  type UpdateUserDto,\n  type UserPayload,\n  UserResponseDto,\n} from \"@users/application/dto/user.dto\";\nimport { User } from \"@users/domain/models/user.entity\";\nimport {\n  USER_REPOSITORY,\n  type UserRepository,\n} from \"@users/domain/repositories/user-repository.interface\";\nimport bcrypt from \"bcryptjs\";\n\n@Injectable()\nexport class UserService {\n  constructor(\n    @Inject(USER_REPOSITORY)\n    private readonly userRepository: UserRepository,\n  ) {}\n\n  async create(dto: CreateUserDto): Promise<void> {\n    const existing = await this.userRepository.findByEmail(dto.email);\n    if (existing) throw new ConflictException(\"Email already registered\");\n\n    const hashedPassword = await bcrypt.hash(dto.password, 10);\n    const user = User.restore({\n      email: dto.email.toLowerCase(),\n      password: hashedPassword,\n      teacherId: dto.teacherId,\n      permissions: dto.permissions as string[],\n    })!;\n\n    await this.userRepository.create(user);\n  }\n\n  async edit(id: string, dto: UpdateUserDto): Promise<void> {\n    const user = await this.userRepository.findById(id);\n    if (!user) throw new NotFoundException(\"User not found\");\n\n    if (dto.email && dto.email !== user.email) {\n      const existing = await this.userRepository.findByEmail(dto.email);\n      if (existing) throw new ConflictException(\"Email already registered\");\n      user.withEmail(dto.email.toLowerCase());\n    }\n\n    if (dto.password) {\n      const hashedPassword = await bcrypt.hash(dto.password, 10);\n      user.withPassword(hashedPassword);\n    }\n\n    if (dto.teacherId !== undefined) user.withTeacherId(dto.teacherId);\n    if (dto.permissions !== undefined)\n      user.withPermissions(dto.permissions as string[]);\n\n    await this.userRepository.update(user);\n  }\n\n  async remove(id: string): Promise<void> {\n    await this.userRepository.delete(id);\n  }\n\n  async list(): Promise<UserResponseDto[]> {\n    const users = await this.userRepository.findAll();\n    return users.map((u) => UserResponseDto.from(u)!);\n  }\n\n  async findById(id: string): Promise<UserResponseDto | null> {\n    const user = await this.userRepository.findById(id);\n    return UserResponseDto.from(user);\n  }\n\n  async validateCredentials(\n    email: string,\n    password: string,\n  ): Promise<UserPayload | null> {\n    const user = await this.userRepository.findByEmail(email.toLowerCase());\n    if (!user) return null;\n\n    const valid = await bcrypt.compare(password, user.password);\n    if (!valid) return null;\n\n    return { id: user.id!, email: user.email, permissions: user.permissions };\n  }\n}\n",
+          "content": "import {
+  ConflictException,
+  Inject,
+  Injectable,
+  NotFoundException,
+} from \"@nestjs/common\";
+import {
+  type CreateUserDto,
+  type UpdateUserDto,
+  type UserPayload,
+  UserResponseDto,
+} from \"@users/application/dto/user.dto\";
+import { User } from \"@users/domain/models/user.entity\";
+import {
+  USER_REPOSITORY,
+  type UserRepository,
+} from \"@users/domain/repositories/user-repository.interface\";
+import bcrypt from \"bcryptjs\";
+
+@Injectable()
+export class UserService {
+  constructor(
+    @Inject(USER_REPOSITORY)
+    private readonly userRepository: UserRepository,
+  ) {}
+
+  async create(dto: CreateUserDto): Promise<void> {
+    const existing = await this.userRepository.findByEmail(dto.email);
+    if (existing) throw new ConflictException(\"Email already registered\");
+
+    const hashedPassword = await bcrypt.hash(dto.password, 10);
+    const user = User.restore({
+      email: dto.email.toLowerCase(),
+      password: hashedPassword,
+      teacherId: dto.teacherId,
+      permissions: dto.permissions as string[],
+    })!;
+
+    await this.userRepository.create(user);
+  }
+
+  async edit(id: string, dto: UpdateUserDto): Promise<void> {
+    const user = await this.userRepository.findById(id);
+    if (!user) throw new NotFoundException(\"User not found\");
+
+    if (dto.email && dto.email !== user.email) {
+      const existing = await this.userRepository.findByEmail(dto.email);
+      if (existing) throw new ConflictException(\"Email already registered\");
+      user.withEmail(dto.email.toLowerCase());
+    }
+
+    if (dto.password) {
+      const hashedPassword = await bcrypt.hash(dto.password, 10);
+      user.withPassword(hashedPassword);
+    }
+
+    if (dto.teacherId !== undefined) user.withTeacherId(dto.teacherId);
+    if (dto.permissions !== undefined)
+      user.withPermissions(dto.permissions as string[]);
+
+    await this.userRepository.update(user);
+  }
+
+  async remove(id: string): Promise<void> {
+    await this.userRepository.delete(id);
+  }
+
+  async list(): Promise<UserResponseDto[]> {
+    const users = await this.userRepository.findAll();
+    return users.map((u) => UserResponseDto.from(u)!);
+  }
+
+  async findById(id: string): Promise<UserResponseDto | null> {
+    const user = await this.userRepository.findById(id);
+    return UserResponseDto.from(user);
+  }
+
+  async validateCredentials(
+    email: string,
+    password: string,
+  ): Promise<UserPayload | null> {
+    const user = await this.userRepository.findByEmail(email.toLowerCase());
+    if (!user) return null;
+
+    const valid = await bcrypt.compare(password, user.password);
+    if (!valid) return null;
+
+    return { id: user.id!, email: user.email, permissions: user.permissions };
+  }
+}
+",
           "position": "1:100",
           "highlightWholeLine": true
         },
@@ -445,7 +875,55 @@
         {
           "action": "replace",
           "path": "src/modules/users/infra/controllers/users.controller.ts",
-          "content": "import {\n  Body,\n  Controller,\n  Delete,\n  Get,\n  Param,\n  Post,\n  Put,\n} from \"@nestjs/common\";\nimport { Permission } from \"@shared/domain/enums/permission.enum\";\nimport { RequirePermissions } from \"@shared/infra/decorators/permissions.decorator\";\nimport { CreateUserDto, UpdateUserDto } from \"@users/application/dto/user.dto\";\nimport { UserService } from \"@users/application/services/user.service\";\n\n@Controller(\"users\")\nexport class UsersController {\n  constructor(private readonly userService: UserService) {}\n\n  @Get()\n  @RequirePermissions(Permission.USERS_READ)\n  async findAll() {\n    return this.userService.list();\n  }\n\n  @Get(\":id\")\n  @RequirePermissions(Permission.USERS_READ)\n  async findById(@Param(\"id\") id: string) {\n    return this.userService.findById(id);\n  }\n\n  @Post()\n  @RequirePermissions(Permission.USERS_WRITE)\n  async create(@Body() body: CreateUserDto) {\n    return this.userService.create(body);\n  }\n\n  @Put(\":id\")\n  @RequirePermissions(Permission.USERS_WRITE)\n  async update(@Param(\"id\") id: string, @Body() body: UpdateUserDto) {\n    return this.userService.edit(id, body);\n  }\n\n  @Delete(\":id\")\n  @RequirePermissions(Permission.USERS_DELETE)\n  async remove(@Param(\"id\") id: string) {\n    return this.userService.remove(id);\n  }\n}\n",
+          "content": "import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from \"@nestjs/common\";
+import { Permission } from \"@shared/domain/enums/permission.enum\";
+import { RequirePermissions } from \"@shared/infra/decorators/permissions.decorator\";
+import { CreateUserDto, UpdateUserDto } from \"@users/application/dto/user.dto\";
+import { UserService } from \"@users/application/services/user.service\";
+
+@Controller(\"users\")
+export class UsersController {
+  constructor(private readonly userService: UserService) {}
+
+  @Get()
+  @RequirePermissions(Permission.USERS_READ)
+  async findAll() {
+    return this.userService.list();
+  }
+
+  @Get(\":id\")
+  @RequirePermissions(Permission.USERS_READ)
+  async findById(@Param(\"id\") id: string) {
+    return this.userService.findById(id);
+  }
+
+  @Post()
+  @RequirePermissions(Permission.USERS_WRITE)
+  async create(@Body() body: CreateUserDto) {
+    return this.userService.create(body);
+  }
+
+  @Put(\":id\")
+  @RequirePermissions(Permission.USERS_WRITE)
+  async update(@Param(\"id\") id: string, @Body() body: UpdateUserDto) {
+    return this.userService.edit(id, body);
+  }
+
+  @Delete(\":id\")
+  @RequirePermissions(Permission.USERS_DELETE)
+  async remove(@Param(\"id\") id: string) {
+    return this.userService.remove(id);
+  }
+}
+",
           "position": "1:60",
           "highlightWholeLine": true
         },
@@ -465,7 +943,28 @@
         {
           "action": "replace",
           "path": "src/modules/users/users.module.ts",
-          "content": "import { Module } from \"@nestjs/common\";\nimport { SharedModule } from \"@shared/shared.module\";\nimport { UserService } from \"@users/application/services/user.service\";\nimport { USER_REPOSITORY } from \"@users/domain/repositories/user-repository.interface\";\nimport { UsersController } from \"@users/infra/controllers/users.controller\";\nimport { DrizzleUserRepository } from \"@users/infra/repositories/drizzle-user.repository\";\n\n@Module({\n  imports: [SharedModule],\n  controllers: [UsersController],\n  providers: [\n    UserService,\n    DrizzleUserRepository,\n    {\n      provide: USER_REPOSITORY,\n      useExisting: DrizzleUserRepository,\n    },\n  ],\n  exports: [UserService],\n})\nexport class UsersModule {}\n",
+          "content": "import { Module } from \"@nestjs/common\";
+import { SharedModule } from \"@shared/shared.module\";
+import { UserService } from \"@users/application/services/user.service\";
+import { USER_REPOSITORY } from \"@users/domain/repositories/user-repository.interface\";
+import { UsersController } from \"@users/infra/controllers/users.controller\";
+import { DrizzleUserRepository } from \"@users/infra/repositories/drizzle-user.repository\";
+
+@Module({
+  imports: [SharedModule],
+  controllers: [UsersController],
+  providers: [
+    UserService,
+    DrizzleUserRepository,
+    {
+      provide: USER_REPOSITORY,
+      useExisting: DrizzleUserRepository,
+    },
+  ],
+  exports: [UserService],
+})
+export class UsersModule {}
+",
           "position": "1:30",
           "highlightWholeLine": true
         },
@@ -513,7 +1012,17 @@
         {
           "action": "replace",
           "path": "src/modules/auth/application/dto/auth.dto.ts",
-          "content": "import { IsEmail, IsString, MinLength } from \"class-validator\";\n\nexport class LoginDto {\n  @IsEmail()\n  email: string;\n\n  @IsString()\n  @MinLength(6)\n  password: string;\n}\n",
+          "content": "import { IsEmail, IsString, MinLength } from \"class-validator\";
+
+export class LoginDto {
+  @IsEmail()
+  email: string;
+
+  @IsString()
+  @MinLength(6)
+  password: string;
+}
+",
           "position": "1:20",
           "highlightWholeLine": true
         },
@@ -547,7 +1056,57 @@
         {
           "action": "replace",
           "path": "src/modules/auth/infra/guards/jwt-auth.guard.ts",
-          "content": "import {\n  CanActivate,\n  ExecutionContext,\n  Injectable,\n  UnauthorizedException,\n} from \"@nestjs/common\";\nimport { Reflector } from \"@nestjs/core\";\nimport { JwtService } from \"@nestjs/jwt\";\nimport type { AuthenticatedUser } from \"@shared/infra/decorators/current-user.decorator\";\nimport { IS_PUBLIC_KEY } from \"@shared/infra/decorators/public.decorator\";\nimport type { Request } from \"express\";\n\n@Injectable()\nexport class JwtAuthGuard implements CanActivate {\n  constructor(\n    private readonly jwtService: JwtService,\n    private readonly reflector: Reflector,\n  ) {}\n\n  async canActivate(context: ExecutionContext): Promise<boolean> {\n    const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [\n      context.getHandler(),\n      context.getClass(),\n    ]);\n\n    if (isPublic) return true;\n\n    const request = context.switchToHttp().getRequest<Request>();\n    const token = this.extractToken(request);\n\n    if (!token) throw new UnauthorizedException(\"Missing token\");\n\n    try {\n      const payload = await this.jwtService.verifyAsync<AuthenticatedUser>(\n        token,\n        { secret: process.env.JWT_SECRET },\n      );\n      (request as Request & { user: AuthenticatedUser }).user = payload;\n    } catch {\n      throw new UnauthorizedException(\"Invalid or expired token\");\n    }\n\n    return true;\n  }\n\n  private extractToken(request: Request): string | undefined {\n    const [type, token] = request.headers.authorization?.split(\" \") ?? [];\n    return type === \"Bearer\" ? token : undefined;\n  }\n}\n",
+          "content": "import {
+  CanActivate,
+  ExecutionContext,
+  Injectable,
+  UnauthorizedException,
+} from \"@nestjs/common\";
+import { Reflector } from \"@nestjs/core\";
+import { JwtService } from \"@nestjs/jwt\";
+import type { AuthenticatedUser } from \"@shared/infra/decorators/current-user.decorator\";
+import { IS_PUBLIC_KEY } from \"@shared/infra/decorators/public.decorator\";
+import type { Request } from \"express\";
+
+@Injectable()
+export class JwtAuthGuard implements CanActivate {
+  constructor(
+    private readonly jwtService: JwtService,
+    private readonly reflector: Reflector,
+  ) {}
+
+  async canActivate(context: ExecutionContext): Promise<boolean> {
+    const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC_KEY, [
+      context.getHandler(),
+      context.getClass(),
+    ]);
+
+    if (isPublic) return true;
+
+    const request = context.switchToHttp().getRequest<Request>();
+    const token = this.extractToken(request);
+
+    if (!token) throw new UnauthorizedException(\"Missing token\");
+
+    try {
+      const payload = await this.jwtService.verifyAsync<AuthenticatedUser>(
+        token,
+        { secret: process.env.JWT_SECRET },
+      );
+      (request as Request & { user: AuthenticatedUser }).user = payload;
+    } catch {
+      throw new UnauthorizedException(\"Invalid or expired token\");
+    }
+
+    return true;
+  }
+
+  private extractToken(request: Request): string | undefined {
+    const [type, token] = request.headers.authorization?.split(\" \") ?? [];
+    return type === \"Bearer\" ? token : undefined;
+  }
+}
+",
           "position": "1:60",
           "highlightWholeLine": true
         },
@@ -581,7 +1140,45 @@
         {
           "action": "replace",
           "path": "src/modules/auth/infra/guards/permissions.guard.ts",
-          "content": "import {\n  CanActivate,\n  ExecutionContext,\n  ForbiddenException,\n  Injectable,\n} from \"@nestjs/common\";\nimport { Reflector } from \"@nestjs/core\";\nimport type { AuthenticatedUser } from \"@shared/infra/decorators/current-user.decorator\";\nimport { PERMISSIONS_KEY } from \"@shared/infra/decorators/permissions.decorator\";\n\n@Injectable()\nexport class PermissionsGuard implements CanActivate {\n  constructor(private readonly reflector: Reflector) {}\n\n  canActivate(context: ExecutionContext): boolean {\n    const required = this.reflector.getAllAndOverride<string[]>(\n      PERMISSIONS_KEY,\n      [context.getHandler(), context.getClass()],\n    );\n\n    if (!required || required.length === 0) return true;\n\n    const request = context\n      .switchToHttp()\n      .getRequest<{ user: AuthenticatedUser }>();\n    const user = request.user;\n\n    const hasPermission = required.every((permission) =>\n      user?.permissions?.includes(permission),\n    );\n\n    if (!hasPermission) {\n      throw new ForbiddenException(\"Insufficient permissions\");\n    }\n\n    return true;\n  }\n}\n",
+          "content": "import {
+  CanActivate,
+  ExecutionContext,
+  ForbiddenException,
+  Injectable,
+} from \"@nestjs/common\";
+import { Reflector } from \"@nestjs/core\";
+import type { AuthenticatedUser } from \"@shared/infra/decorators/current-user.decorator\";
+import { PERMISSIONS_KEY } from \"@shared/infra/decorators/permissions.decorator\";
+
+@Injectable()
+export class PermissionsGuard implements CanActivate {
+  constructor(private readonly reflector: Reflector) {}
+
+  canActivate(context: ExecutionContext): boolean {
+    const required = this.reflector.getAllAndOverride<string[]>(
+      PERMISSIONS_KEY,
+      [context.getHandler(), context.getClass()],
+    );
+
+    if (!required || required.length === 0) return true;
+
+    const request = context
+      .switchToHttp()
+      .getRequest<{ user: AuthenticatedUser }>();
+    const user = request.user;
+
+    const hasPermission = required.every((permission) =>
+      user?.permissions?.includes(permission),
+    );
+
+    if (!hasPermission) {
+      throw new ForbiddenException(\"Insufficient permissions\");
+    }
+
+    return true;
+  }
+}
+",
           "position": "1:50",
           "highlightWholeLine": true
         },
@@ -615,7 +1212,36 @@
         {
           "action": "replace",
           "path": "src/modules/auth/application/services/auth.service.ts",
-          "content": "import type { LoginDto } from \"@auth/application/dto/auth.dto\";\nimport { Injectable, UnauthorizedException } from \"@nestjs/common\";\nimport { JwtService } from \"@nestjs/jwt\";\nimport { UserService } from \"@users/application/services/user.service\";\n\n@Injectable()\nexport class AuthService {\n  constructor(\n    private readonly userService: UserService,\n    private readonly jwtService: JwtService,\n  ) {}\n\n  async login(dto: LoginDto): Promise<{ accessToken: string }> {\n    const user = await this.userService.validateCredentials(\n      dto.email,\n      dto.password,\n    );\n\n    if (!user) throw new UnauthorizedException(\"Invalid credentials\");\n\n    const accessToken = await this.jwtService.signAsync({\n      sub: user.id,\n      email: user.email,\n      permissions: user.permissions,\n    });\n\n    return { accessToken };\n  }\n}\n",
+          "content": "import type { LoginDto } from \"@auth/application/dto/auth.dto\";
+import { Injectable, UnauthorizedException } from \"@nestjs/common\";
+import { JwtService } from \"@nestjs/jwt\";
+import { UserService } from \"@users/application/services/user.service\";
+
+@Injectable()
+export class AuthService {
+  constructor(
+    private readonly userService: UserService,
+    private readonly jwtService: JwtService,
+  ) {}
+
+  async login(dto: LoginDto): Promise<{ accessToken: string }> {
+    const user = await this.userService.validateCredentials(
+      dto.email,
+      dto.password,
+    );
+
+    if (!user) throw new UnauthorizedException(\"Invalid credentials\");
+
+    const accessToken = await this.jwtService.signAsync({
+      sub: user.id,
+      email: user.email,
+      permissions: user.permissions,
+    });
+
+    return { accessToken };
+  }
+}
+",
           "position": "1:40",
           "highlightWholeLine": true
         },
@@ -649,7 +1275,22 @@
         {
           "action": "replace",
           "path": "src/modules/auth/infra/controllers/auth.controller.ts",
-          "content": "import { LoginDto } from \"@auth/application/dto/auth.dto\";\nimport { AuthService } from \"@auth/application/services/auth.service\";\nimport { Body, Controller, Post } from \"@nestjs/common\";\nimport { Public } from \"@shared/infra/decorators/public.decorator\";\n\n@Controller(\"auth\")\nexport class AuthController {\n  constructor(private readonly authService: AuthService) {}\n\n  @Post(\"login\")\n  @Public()\n  async login(@Body() body: LoginDto) {\n    return this.authService.login(body);\n  }\n}\n",
+          "content": "import { LoginDto } from \"@auth/application/dto/auth.dto\";
+import { AuthService } from \"@auth/application/services/auth.service\";
+import { Body, Controller, Post } from \"@nestjs/common\";
+import { Public } from \"@shared/infra/decorators/public.decorator\";
+
+@Controller(\"auth\")
+export class AuthController {
+  constructor(private readonly authService: AuthService) {}
+
+  @Post(\"login\")
+  @Public()
+  async login(@Body() body: LoginDto) {
+    return this.authService.login(body);
+  }
+}
+",
           "position": "1:20",
           "highlightWholeLine": true
         },
@@ -669,7 +1310,38 @@
         {
           "action": "replace",
           "path": "src/modules/auth/auth.module.ts",
-          "content": "import { AuthService } from \"@auth/application/services/auth.service\";\nimport { AuthController } from \"@auth/infra/controllers/auth.controller\";\nimport { JwtAuthGuard } from \"@auth/infra/guards/jwt-auth.guard\";\nimport { PermissionsGuard } from \"@auth/infra/guards/permissions.guard\";\nimport { Module } from \"@nestjs/common\";\nimport { ConfigModule, ConfigService } from \"@nestjs/config\";\nimport { APP_GUARD } from \"@nestjs/core\";\nimport { JwtModule } from \"@nestjs/jwt\";\nimport { UsersModule } from \"@users/users.module\";\n\n@Module({\n  imports: [\n    JwtModule.registerAsync({\n      global: true,\n      imports: [ConfigModule],\n      inject: [ConfigService],\n      useFactory: (config: ConfigService) => ({\n        secret: config.get<string>(\"JWT_SECRET\"),\n        signOptions: { expiresIn: \"1d\" },\n      }),\n    }),\n    UsersModule,\n  ],\n  controllers: [AuthController],\n  providers: [\n    AuthService,\n    { provide: APP_GUARD, useClass: JwtAuthGuard },\n    { provide: APP_GUARD, useClass: PermissionsGuard },\n  ],\n})\nexport class AuthModule {}\n",
+          "content": "import { AuthService } from \"@auth/application/services/auth.service\";
+import { AuthController } from \"@auth/infra/controllers/auth.controller\";
+import { JwtAuthGuard } from \"@auth/infra/guards/jwt-auth.guard\";
+import { PermissionsGuard } from \"@auth/infra/guards/permissions.guard\";
+import { Module } from \"@nestjs/common\";
+import { ConfigModule, ConfigService } from \"@nestjs/config\";
+import { APP_GUARD } from \"@nestjs/core\";
+import { JwtModule } from \"@nestjs/jwt\";
+import { UsersModule } from \"@users/users.module\";
+
+@Module({
+  imports: [
+    JwtModule.registerAsync({
+      global: true,
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => ({
+        secret: config.get<string>(\"JWT_SECRET\"),
+        signOptions: { expiresIn: \"1d\" },
+      }),
+    }),
+    UsersModule,
+  ],
+  controllers: [AuthController],
+  providers: [
+    AuthService,
+    { provide: APP_GUARD, useClass: JwtAuthGuard },
+    { provide: APP_GUARD, useClass: PermissionsGuard },
+  ],
+})
+export class AuthModule {}
+",
           "position": "1:40",
           "highlightWholeLine": true
         },
@@ -689,7 +1361,57 @@
         {
           "action": "replace",
           "path": "src/shared/infra/database/drizzle.service.ts",
-          "content": "import { studentsSchema } from \"@academic/students/infra/schemas/student.schema\";\nimport { subjectsSchema } from \"@academic/subjects/infra/schemas/subject.schema\";\nimport { teachersSchema } from \"@academic/teachers/infra/schemas/teacher.schema\";\nimport {\n  attendanceStatusEnum,\n  attendancesSchema,\n} from \"@attendance/infra/schemas/attendance.schema\";\nimport {\n  classOfferingStatusEnum,\n  classOfferingsSchema,\n} from \"@class-offering/infra/schemas/class-offering.schema\";\nimport {\n  enrollmentStatusEnum,\n  enrollmentsSchema,\n} from \"@enrollment/infra/schemas/enrollment.schema\";\nimport { Injectable, type OnModuleDestroy } from \"@nestjs/common\";\nimport { usersSchema } from \"@users/infra/schemas/user.schema\";\nimport { drizzle } from \"drizzle-orm/node-postgres\";\nimport { Pool } from \"pg\";\n\nconst schema = {\n  subjectsSchema,\n  studentsSchema,\n  teachersSchema,\n  classOfferingsSchema,\n  classOfferingStatusEnum,\n  enrollmentsSchema,\n  enrollmentStatusEnum,\n  attendancesSchema,\n  attendanceStatusEnum,\n  usersSchema,\n};\n\n@Injectable()\nexport class DrizzleService implements OnModuleDestroy {\n  private readonly pool: Pool;\n  public readonly db;\n\n  constructor() {\n    this.pool = new Pool({\n      connectionString: process.env.DATABASE_URL,\n    });\n\n    this.db = drizzle(this.pool, { schema });\n  }\n\n  async onModuleDestroy() {\n    await this.pool.end();\n  }\n}\n",
+          "content": "import { studentsSchema } from \"@academic/students/infra/schemas/student.schema\";
+import { subjectsSchema } from \"@academic/subjects/infra/schemas/subject.schema\";
+import { teachersSchema } from \"@academic/teachers/infra/schemas/teacher.schema\";
+import {
+  attendanceStatusEnum,
+  attendancesSchema,
+} from \"@attendance/infra/schemas/attendance.schema\";
+import {
+  classOfferingStatusEnum,
+  classOfferingsSchema,
+} from \"@class-offering/infra/schemas/class-offering.schema\";
+import {
+  enrollmentStatusEnum,
+  enrollmentsSchema,
+} from \"@enrollment/infra/schemas/enrollment.schema\";
+import { Injectable, type OnModuleDestroy } from \"@nestjs/common\";
+import { usersSchema } from \"@users/infra/schemas/user.schema\";
+import { drizzle } from \"drizzle-orm/node-postgres\";
+import { Pool } from \"pg\";
+
+const schema = {
+  subjectsSchema,
+  studentsSchema,
+  teachersSchema,
+  classOfferingsSchema,
+  classOfferingStatusEnum,
+  enrollmentsSchema,
+  enrollmentStatusEnum,
+  attendancesSchema,
+  attendanceStatusEnum,
+  usersSchema,
+};
+
+@Injectable()
+export class DrizzleService implements OnModuleDestroy {
+  private readonly pool: Pool;
+  public readonly db;
+
+  constructor() {
+    this.pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+    });
+
+    this.db = drizzle(this.pool, { schema });
+  }
+
+  async onModuleDestroy() {
+    await this.pool.end();
+  }
+}
+",
           "position": "1:60",
           "highlightWholeLine": true
         },
@@ -709,7 +1431,30 @@
         {
           "action": "replace",
           "path": "src/app.module.ts",
-          "content": "import { AcademicModule } from \"@academic/academic.module\";\nimport { AttendanceModule } from \"@attendance/attendance.module\";\nimport { AuthModule } from \"@auth/auth.module\";\nimport { ClassOfferingModule } from \"@class-offering/class-offering.module\";\nimport { EnrollmentModule } from \"@enrollment/enrollment.module\";\nimport { Module } from \"@nestjs/common\";\nimport { ConfigModule } from \"@nestjs/config\";\nimport { SharedModule } from \"@shared/shared.module\";\nimport { UsersModule } from \"@users/users.module\";\n\n@Module({\n  imports: [\n    ConfigModule.forRoot(),\n    SharedModule,\n    UsersModule,\n    AuthModule,\n    AcademicModule,\n    ClassOfferingModule,\n    EnrollmentModule,\n    AttendanceModule,\n  ],\n})\nexport class AppModule {}\n",
+          "content": "import { AcademicModule } from \"@academic/academic.module\";
+import { AttendanceModule } from \"@attendance/attendance.module\";
+import { AuthModule } from \"@auth/auth.module\";
+import { ClassOfferingModule } from \"@class-offering/class-offering.module\";
+import { EnrollmentModule } from \"@enrollment/enrollment.module\";
+import { Module } from \"@nestjs/common\";
+import { ConfigModule } from \"@nestjs/config\";
+import { SharedModule } from \"@shared/shared.module\";
+import { UsersModule } from \"@users/users.module\";
+
+@Module({
+  imports: [
+    ConfigModule.forRoot(),
+    SharedModule,
+    UsersModule,
+    AuthModule,
+    AcademicModule,
+    ClassOfferingModule,
+    EnrollmentModule,
+    AttendanceModule,
+  ],
+})
+export class AppModule {}
+",
           "position": "1:30",
           "highlightWholeLine": true
         },
@@ -735,7 +1480,55 @@
         {
           "action": "replace",
           "path": "src/modules/academic/teachers/infra/controllers/teachers.controller.ts",
-          "content": "import { TeacherDto } from \"@academic/teachers/application/dto/teacher.dto\";\nimport { TeacherService } from \"@academic/teachers/application/services/teacher.service\";\nimport {\n  Body,\n  Controller,\n  Delete,\n  Get,\n  Param,\n  Post,\n  Put,\n} from \"@nestjs/common\";\nimport { Permission } from \"@shared/domain/enums/permission.enum\";\nimport { RequirePermissions } from \"@shared/infra/decorators/permissions.decorator\";\n\n@Controller(\"teachers\")\nexport class TeachersController {\n  constructor(private readonly teacherService: TeacherService) {}\n\n  @Get()\n  @RequirePermissions(Permission.TEACHERS_READ)\n  async findAll() {\n    return this.teacherService.list();\n  }\n\n  @Get(\":id\")\n  @RequirePermissions(Permission.TEACHERS_READ)\n  async findById(@Param(\"id\") id: string) {\n    return this.teacherService.findById(id);\n  }\n\n  @Post()\n  @RequirePermissions(Permission.TEACHERS_WRITE)\n  async create(@Body() body: TeacherDto) {\n    return this.teacherService.create(body);\n  }\n\n  @Put(\":id\")\n  @RequirePermissions(Permission.TEACHERS_WRITE)\n  async update(@Param(\"id\") id: string, @Body() body: TeacherDto) {\n    return this.teacherService.edit(id, body);\n  }\n\n  @Delete(\":id\")\n  @RequirePermissions(Permission.TEACHERS_DELETE)\n  async remove(@Param(\"id\") id: string) {\n    return this.teacherService.remove(id);\n  }\n}\n",
+          "content": "import { TeacherDto } from \"@academic/teachers/application/dto/teacher.dto\";
+import { TeacherService } from \"@academic/teachers/application/services/teacher.service\";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from \"@nestjs/common\";
+import { Permission } from \"@shared/domain/enums/permission.enum\";
+import { RequirePermissions } from \"@shared/infra/decorators/permissions.decorator\";
+
+@Controller(\"teachers\")
+export class TeachersController {
+  constructor(private readonly teacherService: TeacherService) {}
+
+  @Get()
+  @RequirePermissions(Permission.TEACHERS_READ)
+  async findAll() {
+    return this.teacherService.list();
+  }
+
+  @Get(\":id\")
+  @RequirePermissions(Permission.TEACHERS_READ)
+  async findById(@Param(\"id\") id: string) {
+    return this.teacherService.findById(id);
+  }
+
+  @Post()
+  @RequirePermissions(Permission.TEACHERS_WRITE)
+  async create(@Body() body: TeacherDto) {
+    return this.teacherService.create(body);
+  }
+
+  @Put(\":id\")
+  @RequirePermissions(Permission.TEACHERS_WRITE)
+  async update(@Param(\"id\") id: string, @Body() body: TeacherDto) {
+    return this.teacherService.edit(id, body);
+  }
+
+  @Delete(\":id\")
+  @RequirePermissions(Permission.TEACHERS_DELETE)
+  async remove(@Param(\"id\") id: string) {
+    return this.teacherService.remove(id);
+  }
+}
+",
           "position": "1:60",
           "highlightWholeLine": true
         },
