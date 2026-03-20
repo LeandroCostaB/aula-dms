@@ -79,10 +79,16 @@ export class UserService {
     email: string,
     password: string,
   ): Promise<UserPayload | null> {
+    console.log("1. Tentando fazer login com o e-mail:", email);
+    
     const user = await this.userRepository.findByEmail(email.toLowerCase());
+    console.log("2. Utilizador encontrado na Base de Dados?", user ? "SIM" : "NÃO");
+
     if (!user) return null;
 
     const valid = await bcrypt.compare(password, user.password);
+    console.log("3. A password coincide?", valid ? "SIM" : "NÃO");
+
     if (!valid) return null;
 
     return { id: user.id!, email: user.email, permissions: user.permissions };
